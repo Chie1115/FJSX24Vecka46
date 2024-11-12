@@ -1,0 +1,104 @@
+{
+  "console_log": "GOOOOD MORNING FJSX24!!!",
+  "JSON_Grundläggande_Syntax_och_Exempel": {
+    "comment": "1. Nyckel/Värde-par\n\nJSON representerar data i form av nyckel/värde-par:\n\nGrundläggande syntax:"
+  },
+  "person": {
+    "name": "Mandus",
+    "comment_name": "string",
+    "age": 39,
+    "comment_age": "number",
+    "isStudent": false,
+    "comment_isStudent": "boolean",
+    "courses": ["html", "css", "vanilla JS"],
+    "comment_courses": "array",
+    "adress": {
+      "street": "Folkungatan",
+      "city": "Stockholm"
+    },
+    "comment_adress": "object",
+    "isTeacher": true,
+    "comment_isTeacher": "boolean"
+  },
+  "Arrayer": {
+    "comment": "2. Arrayer\n\nArrayer är listor över värden:",
+    "data": {
+      "fruits": ["äpple", "melon", "orange"],
+      "numbers": [1, 2, 33]
+    }
+  },
+  "Objekt": {
+    "comment": "3. Objekt\n\nObjekt är samlingar av nyckel/värde-par:",
+    "data": {
+      "person": {
+        "name": "Hans",
+        "age": 2
+      },
+      "comment_person": "Behöver man , här också?",
+      "kanManGöraNull": null
+    }
+  },
+  "Vanliga_Misstag": {
+    "comment": "5. Vanliga Misstag:",
+    "5A": {
+      "comment": "Använder enkla citattecken istället för dubbla:\n❌ Fel:",
+      "fel": {
+        "name": "Hans"
+      },
+      "comment_fel": "Använde enkla citattecken",
+      "rätt": {
+        "name": "Hans"
+      },
+      "comment_rätt": "Använde dubbla citattecken"
+    },
+    "5B": {
+      "comment": "Saknade kommatecken mellan nyckel/värde-par:\n❌ Fel:",
+      "fel": {
+        "name": "Hans"
+      },
+      "comment_fel": "Saknade kommatecken mellan nyckel/värde-par",
+      "rätt": {
+        "name": "Hans",
+        "age": 3
+      },
+      "comment_rätt": "Korrekt användning av kommatecken"
+    },
+    "5C": {
+      "comment": "Sista kommatecknet efter det sista paret:\n❌ Fel:",
+      "fel": {
+        "name": "Hans",
+        "age": 3
+      },
+      "comment_fel": "Onödigt kommatecken efter sista paret",
+      "rätt": {
+        "name": "Hans",
+        "age": 3
+      },
+      "comment_rätt": "Ingen kommatecken efter sista paret"
+    }
+  },
+  "Likheter_och_Skillnader": {
+    "comment": "Likheter och Skillnader JSON och JavaScript-objekt:\n\nSyntaxlikheter:\n- Båda använder nyckel/värde-par.\n- Liknande struktur för arrayer och objekt.\n\nSkillnader:\n\nJSON:\n- Nycklar måste vara strängar omslutna av dubbla citattecken.\n- Tillåter inte funktioner eller odefinierade värden.\n\nJavaScript-objekt:\n- Nycklar kan vara utan citattecken.\n- Kan innehålla funktioner, undefined och andra komplexa typer."
+  },
+  "Exempel_JavaScript_objekt": {
+    "comment": "Exempel på JavaScript-objekt:",
+    "person": {
+      "name": "Olle",
+      "age": 30,
+      "greetings": "function() { console.log('Hej!'); }"
+    }
+  },
+  "Exempel_JSON": {
+    "comment": "Exempel på motsvarande JSON:",
+    "person": {
+      "namn": "Olle",
+      "ålder": 30
+    }
+  },
+  "Konvertering_mellan_JSON_och_JavaScript": {
+    "comment": "Konvertering mellan JSON och JavaScript\n\nJSON.parse(): Konverterar en JSON-sträng till ett JavaScript-objekt.\n\nJSON.stringify(): Konverterar ett JavaScript-objekt till en JSON-sträng.\n\nDemo:"
+  },
+  "Säkerhetshänsyn": {
+    "comment": "Säkerhetshänsyn vid hantering av JSON-data\n\nValidera inkommande data:\n- Se till att data är i förväntat format.\n\nAnvänd try-catch vid parsing:"
+  }
+}
