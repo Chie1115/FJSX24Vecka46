@@ -1,3 +1,4 @@
+// console.log("localstorage");
 // Introduktion till LocalStorage
 
 // Vad är LocalStorage?
@@ -24,41 +25,64 @@
 // --------------------------------------------------------------
 // Hämta referenser till HTML-elementen
 
-// const nameInput = document.getElementById('nameInput');
-// const saveButton = document.getElementById('saveButton');
-// const deleteButton = document.getElementById('deleteButton');
-// const greeting = document.getElementById('greeting');
+const nameInput = document.getElementById("nameInput");
+const saveButton = document.getElementById("saveButton");
+const deleteButton = document.getElementById("deleteButton");
+const greeting = document.getElementById("greeting");
 
 // --------------------------------------------------------------
 // Lägg till händelselyssnare
 
-// saveButton.addEventListener('click', saveName);
-// deleteButton.addEventListener('click', deleteName);
+saveButton.addEventListener("click", saveName);
+
+deleteButton.addEventListener("click", deleteName);
 
 // --------------------------------------------------------------
 // Definiera Funktionerna för att Spara och Ta Bort Namn:
 
-// Spara funktion:
+// Spara namn funktion:
 
-//   Förklaring:
+function saveName() {
+  let name = nameInput.value;
 
-//   Vi hämtar värdet från inmatningsfältet.
-//   Om namnet inte är tomt:
-//   Vi sparar det i LocalStorage med nyckeln 'userName'.
-//   Vi anropar en funktion för att visa hälsningen.
-//   Vi rensar inmatningsfältet.
-//   Om namnet är tomt visas en varning.
+  if (name) {
+    localStorage.setItem("userNameValue", name);
+
+    displayGreeting();
+
+    nameInput.value = "";
+  } else {
+    // console.log("Var snäll och fyll i ett namn i input fältet");
+    greeting.textContent = "Var snäll och fyll i ett namn i input fältet";
+  }
+}
 
 // --------------------------------------------------------------
 // Funktionen för att Ta Bort Namnet
 
-//   Förklaring:
+function deleteName() {
+  const storedName = localStorage.getItem("userNameValue");
 
-//   Vi tar bort 'userName' från LocalStorage.
-//   Vi rensar hälsningen genom att sätta textContent till en tom sträng.
+  if (storedName) {
+    localStorage.removeItem("userNameValue");
+    greeting.textContent = `Du har tagit bort ${storedName}`;
+  } else {
+    greeting.textContent = "Det finns inget namn sparat som du kan ta bort";
+  }
+}
 
 // --------------------------------------------------------------
 // Funktion för att Visa Hälsningen
+
+function displayGreeting() {
+  const storedName = localStorage.getItem("userNameValue");
+
+  if (storedName) {
+    greeting.textContent = `Välkommen till min hemsida ${storedName}`;
+  } else {
+    greeting.textContent = "";
+  }
+}
 
 //   Förklaring:
 
@@ -67,7 +91,7 @@
 //   Om inte, rensar vi hälsningen.
 // --------------------------------------------------------------
 // anropa hälsningen när sidan laddas
-
+displayGreeting();
 // --------------------------------------------------------------
 
 // TESTA APPLIKATIONEN!!!
@@ -89,7 +113,7 @@
 // Hämtar värdet som är sparat under den specifika nyckeln.
 // localStorage.removeItem(key):
 // Tar bort värdet som är sparat under den specifika nyckeln.
-// localStorage.clear():
+// localStorage.clear();
 // Rensar all data i LocalStorage.
 
 // Viktigt att Notera:

@@ -17,7 +17,6 @@
 // Använd JSON.stringify() med en replacer-funktion för att exkludera password-fältet när du serialiserar objektet till en JSON-sträng.
 
 // ------------------------------------------------------
-
 // Övning 2: Använda Reviver-funktionen i JSON.parse()
 
 // Du har följande JSON-sträng:
