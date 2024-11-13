@@ -1,169 +1,99 @@
-console.log("GOOOOD MORNING FJSX24!!!");
+// Introduktion till LocalStorage
 
-// JSON, Grundläggande Syntax och Exempel:
+// Vad är LocalStorage?
 
-// 1. Nyckel/Värde-par
+// En webbläsarbaserad lagringslösning som kan lagra upp till 5MB data.
+// Data lagras som nyckel-värde-par i strängformat.
+// --------------------------------------------------------------
 
-// JSON representerar data i form av nyckel/värde-par:
+// Vanliga metoder:
 
-// Grundläggande syntax:
-// {
-//     "name": "Mandus", //string
-//     "age": 39, //number
-//     "isStudent": false, //boolean
-//     "courses": ["html", "css", "vanilla JS"], //array
-//     "adress": {
-//         "street": "Folkungatan",
-//         "city": "Stockholm"
-//     }, //object
-//     "isTeacher": true //boolean
-// }
+// localStorage.setItem(key, value)
+// localStorage.getItem(key)
+// localStorage.removeItem(key)
+// localStorage.clear()
+// --------------------------------------------------------------
+// Begränsningar och säkerhetsaspekter:
 
-// -------------------------------------------------------------
-// 2. Arrayer
+// Endast strängar kan lagras.
+// Data är tillgänglig över alla flikar och sessioner inom samma domän.
+// Inte lämpligt för känslig information.
 
-// Arrayer är listor över värden:
-// {
-//     "fruits": ["äpple", "melon", "orange"],
-//     "numbers": [1, 2, 33]
-// }
+// --------------------------------------------------------------
+// --------------------------------------------------------------
+// --------------------------------------------------------------
+// Hämta referenser till HTML-elementen
 
-// -------------------------------------------------------------
-// 3. Objekt
+// const nameInput = document.getElementById('nameInput');
+// const saveButton = document.getElementById('saveButton');
+// const deleteButton = document.getElementById('deleteButton');
+// const greeting = document.getElementById('greeting');
 
-// Objekt är samlingar av nyckel/värde-par:
+// --------------------------------------------------------------
+// Lägg till händelselyssnare
 
-// {
-//     "person": {
-//         "name": "Hans",
-//         "age": 2 //Behöver man , här också?
-//     },
-//     "kanManGöraNull": null
-// }
+// saveButton.addEventListener('click', saveName);
+// deleteButton.addEventListener('click', deleteName);
 
-// -------------------------------------------------------------
-// 5. Vanliga Misstag:
+// --------------------------------------------------------------
+// Definiera Funktionerna för att Spara och Ta Bort Namn:
 
-// 5A.Använder enkla citattecken istället för dubbla:
-// ❌ Fel:
-// {
-//     'name': "Hans"
-// }
+// Spara funktion:
 
-// ✅ Rätt:
-// {
-//     "name": "Hans"
-// }
+//   Förklaring:
 
-// -------------------------------------------------------------
-// 5B. Saknade kommatecken mellan nyckel/värde-par:
-// ❌ Fel:
-// {
-//     "name": "Hans"
-//     "age": 3
-// }
+//   Vi hämtar värdet från inmatningsfältet.
+//   Om namnet inte är tomt:
+//   Vi sparar det i LocalStorage med nyckeln 'userName'.
+//   Vi anropar en funktion för att visa hälsningen.
+//   Vi rensar inmatningsfältet.
+//   Om namnet är tomt visas en varning.
 
-// ✅ Rätt:
-// {
-//     "name": "Hans",
-//     "age": 3
-// }
+// --------------------------------------------------------------
+// Funktionen för att Ta Bort Namnet
 
-// -------------------------------------------------------------
-// 5C. Sista kommatecknet efter det sista paret:
-// ❌ Fel:
-// {
-//     "name": "Hans",
-//     "age": 3,
-// }
+//   Förklaring:
 
-// // ✅ Rätt:
-// {
-//     "name": "Hans",
-//     "age": 3
-// }
+//   Vi tar bort 'userName' från LocalStorage.
+//   Vi rensar hälsningen genom att sätta textContent till en tom sträng.
 
-// -------------------------------------------------------------
-// -------------------------------------------------------------
-// -------------------------------------------------------------
-// Likheter och Skillnader JSON och JavaScript-objekt:
+// --------------------------------------------------------------
+// Funktion för att Visa Hälsningen
 
-// Syntaxlikheter:
+//   Förklaring:
 
-// Båda använder nyckel/värde-par.
-// Liknande struktur för arrayer och objekt.
+//   Vi hämtar namnet från LocalStorage.
+//   Om namnet finns, uppdaterar vi hälsningen med användarens namn.
+//   Om inte, rensar vi hälsningen.
+// --------------------------------------------------------------
+// anropa hälsningen när sidan laddas
 
-// Skillnader:
+// --------------------------------------------------------------
 
-// JSON:
-// Nycklar måste vara strängar omslutna av dubbla citattecken.
-// Tillåter inte funktioner eller odefinierade värden.
+// TESTA APPLIKATIONEN!!!
 
-// JavaScript-objekt:
-// Nycklar kan vara utan citattecken.
-// Kan innehålla funktioner, undefined och andra komplexa typer.
+// --------------------------------------------------------------
+// Förklaring av LocalStorage
 
-// -------------------------------------------------------------
-// Exempel på JavaScript-objekt:
+// Vad är LocalStorage?
 
-// const person = {
-//   name: "Olle",
-//   age: 30,
-//   greetings: function () {
-//     console.log("Hej!");
-//   },
-// };
+// En del av webbläsarens Web Storage API.
+// Låter oss lagra data i nyckel-värde-par i webbläsaren.
+// Data i LocalStorage kvarstår mellan sidladdningar och stängningar av webbläsaren.
 
-// -------------------------------------------------------------
-// Exempel på motsvarande JSON:
+// Viktiga Metoder:
 
-// {
-//     "namn": "Olle",
-//     "ålder": 30
-//   }
+// localStorage.setItem(key, value):
+// Sparar ett värde under en specifik nyckel.
+// localStorage.getItem(key):
+// Hämtar värdet som är sparat under den specifika nyckeln.
+// localStorage.removeItem(key):
+// Tar bort värdet som är sparat under den specifika nyckeln.
+// localStorage.clear():
+// Rensar all data i LocalStorage.
 
-// -------------------------------------------------------------
-// Konvertering mellan JSON och JavaScript
+// Viktigt att Notera:
 
-// JSON.parse(): Konverterar en JSON-sträng till ett JavaScript-objekt:
-
-// const jsonStr = '{"name": "Mandus", "age": 39}';
-
-// console.log("jsonStr", typeof jsonStr);
-
-// const obj = JSON.parse(jsonStr);
-
-// console.log("obj", typeof obj);
-
-// JSON.stringify(): Konverterar ett JavaScript-objekt till en JSON-sträng:
-
-// const obj = {
-//   name: "Hans",
-//   age: 4,
-// };
-// console.log("obj", typeof obj);
-
-// const jsonStr = JSON.stringify(obj);
-// console.log("jsonStr", typeof jsonStr);
-
-// Demo:
-// const jsonStr = '{"name": "Mandus", "age": 39}';
-// let jsonStr22222222222;
-
-// -------------------------------------------------------------
-// Säkerhetshänsyn vid hantering av JSON-data
-
-// Validera inkommande data:
-
-// Se till att data är i förväntat format.
-
-// Använd try-catch vid parsing:
-
-// try {
-//   const obj = JSON.parse(jsonStr);
-//   console.log("obj", obj);
-// } catch (error) {
-//   console.log("error", error);
-// }
-
-// -------------------------------------------------------------
+// All data lagras som strängar.
+// Om du behöver lagra objekt eller arrayer måste du konvertera dem till strängar med JSON.stringify().
+// När du hämtar data måste du konvertera tillbaka med JSON.parse().
